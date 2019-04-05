@@ -1,4 +1,5 @@
-n = pizza size
+s = number of floors
+n = number of punches
 
-O(2^n) time
+O(s^n) time
 O(n) space

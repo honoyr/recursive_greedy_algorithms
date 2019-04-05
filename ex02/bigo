@@ -1,4 +1,4 @@
-n = pizza size
+n = number of games
 
-O(2^n) time
+O(2^n)
 O(n) space

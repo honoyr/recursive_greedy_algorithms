@@ -1,4 +1,4 @@
-n = pizza size
+n = number of moves
 
-O(2^n) time
+O(n) time
 O(n) space

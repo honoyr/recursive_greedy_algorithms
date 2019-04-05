@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   roulette.c                                         :+:      :+:    :+:   */
+/*   minPersons.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgonor <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/04 20:27:01 by dgonor            #+#    #+#             */
-/*   Updated: 2019/04/04 20:27:05 by dgonor           ###   ########.fr       */
+/*   Created: 2019/04/04 22:53:31 by dgonor            #+#    #+#             */
+/*   Updated: 2019/04/04 22:53:34 by dgonor           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@
 
 #include "header.h"
 
-double probabilityWin(double firstDollarsBet, double dollarsWanted, int nbGame)
+int		minPersons(int elements, int minPercentage)
 {
-	if (firstDollarsBet >= dollarsWanted)
-		return 1;
-	if (nbGame == 0)
-		return 0;
-	double prob = probabilityWin(firstDollarsBet * 2, dollarsWanted, nbGame - 1) * 18.0 / 37.0;
-	prob += probabilityWin(firstDollarsBet / 2, dollarsWanted, nbGame - 1) / 37.0;
-	return (prob);
+	int ret = 1;
+	if (minPercentage > 100)
+		minPercentage = 100;
+	double prob = 0;
+	while (prob < (double)minPercentage / 100.0)
+	{
+		prob += (1.0 - prob) * (double)ret / (double)elements;
+		ret++;
+	}
+	return ret;
 }

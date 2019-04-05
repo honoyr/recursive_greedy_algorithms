@@ -1,4 +1,4 @@
-n = pizza size
+n = number of slots
 
-O(2^n) time
-O(n) space
+O(n) time
+O(1) space
